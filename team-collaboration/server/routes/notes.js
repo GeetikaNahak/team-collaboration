@@ -1,4 +1,4 @@
-wimport express from 'express';
+import express from 'express';
 import { body, validationResult } from 'express-validator';
 import Note from '../models/Note.js';
 import Activity from '../models/Activity.js';
