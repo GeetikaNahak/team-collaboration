@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
-import { LogOut, Home, Users, Activity } from 'lucide-react';
+import { LogOut, Home, Users } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 const Layout: React.FC = () => {
@@ -24,7 +24,7 @@ const Layout: React.FC = () => {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-8">
               <div className="flex-shrink-0">
-                <h1 className="text-xl font-bold text-indigo-600">StartupCollab</h1>
+                <h1 className="text-xl font-bold text-indigo-600">TeamCollab</h1>
               </div>
               
               <div className="hidden md:flex space-x-4">
