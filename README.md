@@ -2,19 +2,18 @@
 
 A modern full-stack collaboration platform designed for startup teams to efficiently manage workspaces, notes, and team activities — all in one place.
 
----
 
-## 🚀 Live Demo
-*(If deployed, add your live demo URL here)*  
+
+## 🚀 Live Demo 
 [Live Demo Link](https://your-demo-link.com)
 
----
+
 
 ## 📝 Project Description
 
 This app enables startup teams to create and join workspaces, collaborate through notes, and keep track of team activities with detailed logs. Built with a focus on security, role-based access, and smooth user experience, it simplifies remote teamwork and boosts productivity.
 
----
+
 
 ## ✨ Features
 
@@ -39,7 +38,6 @@ This app enables startup teams to create and join workspaces, collaborate throug
 - **Clean & Responsive UI**  
   Built with React.js and Tailwind CSS for a modern, user-friendly interface.
 
----
 
 ## 🛠️ Tech Stack
 
@@ -51,7 +49,7 @@ This app enables startup teams to create and join workspaces, collaborate throug
 | Authentication | Auth0, JWT              |
 | Deployment   | *(Add your platform)*    |
 
----
+
 
 ## 🏗️ Architecture Overview
 
