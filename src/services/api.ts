@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://team-collaboration-lu3m.onrender.com/api';
+const API_BASE_URL = 'https://team-collaboration-lu3m.onrender.com';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
