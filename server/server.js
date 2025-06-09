@@ -13,15 +13,18 @@ connectDB();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+const allowedOrigins =
+  process.env.NODE_ENV === "production"
+    ? "https://team-collaboration-two.vercel.app"
+    : ["http://localhost:5173", "http://localhost:3000"];
+
 app.use(
   cors({
-    origin:
-      process.env.NODE_ENV === "production"
-        ? "https://team-collaboration-two.vercel.app"  // Single string, not array
-        : ["http://localhost:5173", "http://localhost:3000"],  // Multiple origins for dev
-    credentials: true, 
+    origin: allowedOrigins,
+    credentials: true,
   })
 );
+
 
 if (process.env.NODE_ENV !== "production") {
   app.use((req, res, next) => {
