@@ -6,25 +6,29 @@ import authRoutes from "./routes/auth.js";
 import workspaceRoutes from "./routes/workspaces.js";
 import noteRoutes from "./routes/notes.js";
 
-// Load environment variables
 dotenv.config();
 
-// Connect to MongoDB
 connectDB();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
 app.use(
   cors({
     origin:
       process.env.NODE_ENV === "production"
-        ? ["https://team-collaboration-two.vercel.app"]
-        : ["http://localhost:5173", "http://localhost:3000"],
-    credentials: true,
+        ? "https://team-collaboration-two.vercel.app"  // Single string, not array
+        : ["http://localhost:5173", "http://localhost:3000"],  // Multiple origins for dev
+    credentials: true, 
   })
 );
+
+if (process.env.NODE_ENV !== "production") {
+  app.use((req, res, next) => {
+    console.log("Request Origin:", req.headers.origin);
+    next();
+  });
+}
 
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
@@ -39,7 +43,6 @@ app.get("/api/health", (req, res) => {
     timestamp: new Date().toISOString(),
   });
 });
-
 app.use((error, req, res, next) => {
   console.error("Unhandled error:", error);
   res.status(500).json({
@@ -53,6 +56,6 @@ app.use("*", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(` Server running on port ${PORT}`);
-  console.log(` Environment: ${process.env.NODE_ENV}`);
+  console.log(`Server running on port ${PORT}`);
+  console.log(`Environment: ${process.env.NODE_ENV}`);
 });
