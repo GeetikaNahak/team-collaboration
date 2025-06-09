@@ -29,12 +29,10 @@ app.use(
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
 
-// Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/workspaces", workspaceRoutes);
 app.use("/api/notes", noteRoutes);
 
-// Health check
 app.get("/api/health", (req, res) => {
   res.json({
     message: "Startup Collaboration API is running!",
@@ -42,7 +40,6 @@ app.get("/api/health", (req, res) => {
   });
 });
 
-// Error handling middleware
 app.use((error, req, res, next) => {
   console.error("Unhandled error:", error);
   res.status(500).json({
@@ -51,7 +48,6 @@ app.use((error, req, res, next) => {
   });
 });
 
-// 404 handler
 app.use("*", (req, res) => {
   res.status(404).json({ message: "Route not found" });
 });

@@ -47,7 +47,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       
       if (savedToken) {
         try {
-          // Check if token is expired
           const decoded: any = jwtDecode(savedToken);
           const currentTime = Date.now() / 1000;
           
@@ -57,7 +56,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             return;
           }
 
-          // Set token and fetch user data
           setToken(savedToken);
           const response = await api.get('/auth/me', {
             headers: { Authorization: `Bearer ${savedToken}` }
