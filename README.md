@@ -1,4 +1,4 @@
-# Collaboration Workspace App
+# UniColab - Collaboration Workspace App
 
 A modern full-stack collaboration platform designed for startup teams to efficiently manage workspaces, notes, and team activities — all in one place.
 
